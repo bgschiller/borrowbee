@@ -3,25 +3,36 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>{% block title %}Wishlist{% endblock title %}</title>
+<title>{% block title %}Borrowbee{% endblock title %}</title>
 
 </head>
 
 <body>
   <nav>
-      <a href="{% url 'home' %}">Wishlist</a>
-        {% if user.is_authenticated %}
-          {{ user.email }}
-          <a href="{% url 'account_change_password' %}">Change password</a>
-          <a href="{% url 'account_logout' %}">Log out</a>
-        {% else %}
-          <form>
-            <a href="{% url 'account_login' %}">Log in</a>
-            <a href="{% url 'account_signup' %}">Sign up</a>
-          </form>
-        {% endif %}
-      </div>
-    </nav>
+    <a href="{% url 'home' %}">Borrowbee</a>
+      {% if user.is_authenticated %}
+        {{ user.email }}
+        <a href="{% url 'account_change_password' %}">Change password</a>
+        <a href="{% url 'account_logout' %}">Log out</a>
+      {% else %}
+        <form>
+          <a href="{% url 'account_login' %}">Sign in</a>
+          <a href="{% url 'account_signup' %}">Sign up</a>
+        </form>
+      {% endif %}
+    </div>
+  </nav>
+
+  {% if messages %}
+  <div>
+    <strong>Messages:</strong>
+    <ul>
+      {% for message in messages %}
+      <li>{{message}}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
 
   <div class="container">
     {% block content %}

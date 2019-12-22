@@ -9,11 +9,15 @@ license = "MIT"
 python = "^3.6"
 django = "^3.0.1"
 django-allauth = "^0.41.0"
+django-background-tasks = { git = "https://github.com/arteria/django-background-tasks.git", tag = "v1.2.5" }
+requests = "^2.22.0"
 
 [tool.poetry.dev-dependencies]
 black = "^19.10b0"
 pylint-django = "^2.0.13"
 pylint = "^2.4.4"
+mypy = "^0.761"
+django-stubs = "^1.4.0"
 
 [build-system]
 requires = ["poetry>=0.12"]

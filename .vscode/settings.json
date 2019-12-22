@@ -1,0 +1,9 @@
+{
+  "python.formatting.provider": "black",
+  "python.pythonPath": "/Users/brian/Library/Caches/pypoetry/virtualenvs/borrowbee-P_uSyZmS-py3.7/bin/python",
+  "editor.tabSize": 4,
+  "editor.formatOnSave": true,
+  "files.associations": {
+    "*.html": "django-html"
+  }
+}
