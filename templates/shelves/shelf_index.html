@@ -1,0 +1,24 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<h2>My Shelves</h2>
+
+{% if create_form %}
+    <form action="{{ create_url }}" method="post">
+        <h3>Create a new Shelf</h3>
+        {% csrf_token %}
+        {{ create_form }}
+        <input type="submit" value="Create" />
+    </form>
+{% endif %}
+
+<ul>
+    {% for shelf in shelves %}
+    <li>
+        <a href="{{ shelf.get_absolute_url }}">
+            {{ shelf.name }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,5 +1,7 @@
-{% extends "_base.html" %} {% block content %}
+{% extends "_base.html" %}
+{% block content %}
 <a href="{% url 'my-bookcopies' %}">My Bookcopies</a>
+
 <h2>{{ bookcopy.book.title |default:bookcopy.book.isbn }}</h2>
 <img src="{{ bookcopy.book.cover_photo }}">
 <p>{{ bookcopy.book.description |default:"Unable to find description" }}</p>

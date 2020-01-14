@@ -1,0 +1,30 @@
+{% extends "_base.html" %}
+{% block content %}
+<a href="{% url 'my-shelves' %}">My Shelves</a>
+
+<h2>{{ shelf.name }}</h2>
+
+{% if unshelved_books %}
+    <form action="{{ add_url }}" method="post">
+        <h3>Add a book to this shelf</h3>
+        {% csrf_token %}
+        <select name="book_copy">
+        {% for book_copy in unshelved_books %}
+            <option value="{{ book_copy.id }}">
+                {{ book_copy.book.title |default:book_copy.book.isbn }}
+            </option>
+        {% endfor %}
+        </select>
+        <input type="submit" value="Add" />
+    </form>
+{% endif %}
+
+<ul class="books">
+{% for book in books %}
+    <li>
+        {{ book.title |default:book.isbn }}
+        <img src="{{ book.cover_photo }}">
+    </li>
+{% endfor %}
+</ul>
+{% endblock %}

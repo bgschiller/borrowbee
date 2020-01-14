@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "users",
     "pages",
     "books",
+    "shelves",
 ]
 
 MIDDLEWARE = [
