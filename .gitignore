@@ -8,6 +8,9 @@ parts
 *.egg-info
 __pycache__
 db.sqlite3
+.cache
+static/js
+node_modules
 lib
 lib64
 .mypy_cache
