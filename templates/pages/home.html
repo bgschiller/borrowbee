@@ -7,6 +7,6 @@
 {% block content %}
   <h1>Home page</h1>
   <ul>
-    <li><a href="{% url 'my-bookcopies' %}">Books</a></li>
+    {% if user.is_authenticated %}<li><a href="{% url 'my-bookcopies' %}">Books</a></li>{% endif %}
   </ul>
 {% endblock content %}

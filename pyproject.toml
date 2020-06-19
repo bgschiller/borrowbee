@@ -12,6 +12,7 @@ django-allauth = "^0.41.0"
 django-background-tasks = { git = "https://github.com/arteria/django-background-tasks.git", tag = "v1.2.5" }
 requests = "^2.22.0"
 pytest-django = "^3.7.0"
+django-widget-tweaks = "^1.4.8"
 
 [tool.poetry.dev-dependencies]
 black = "^19.10b0"

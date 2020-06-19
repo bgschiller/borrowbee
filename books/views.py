@@ -1,3 +1,6 @@
+from itertools import chain
+import re
+
 from django.shortcuts import render, HttpResponseRedirect
 from django.views import View
 from django.views.generic import (
@@ -44,16 +47,29 @@ class BookCopyIndex(ListView, LoginRequiredMixin):
         return context
 
 
+def get_or_create_books(isbns):
+    existing = Book.objects.filter(isbn__in=isbns)
+    existing_isbns = {e.isbn for e in existing}
+    to_create_isbns = set(isbns) - existing_isbns
+    to_create = [Book(isbn=isbn) for isbn in to_create_isbns]
+    Book.objects.bulk_create(to_create)
+    created = Book.objects.filter(isbn__in=to_create_isbns)
+    return existing, created
+
+
 class BookCopyCreate(View, LoginRequiredMixin):
     def post(self, request):
         form = CreateBookCopyForm(request.POST)
         if not form.is_valid():
             return render(request, "books/bookcopy_index.html", {"form": form})
-        isbn = form.cleaned_data["isbn"]
-        book, created = Book.objects.get_or_create(isbn=isbn)
+        isbns = re.split(r"[\s,]", form.cleaned_data["isbns"])
+        existing, created = get_or_create_books(isbns)
         if created:
-            save_book_details(isbn)
-        book.copies.create(owner=request.user)
+            save_book_details([b.isbn for b in created])
+        copies = [
+            BookCopy(book=b, owner=request.user) for b in chain(existing, created)
+        ]
+        BookCopy.objects.bulk_create(copies)
         messages.success(request, "Book created")
         return HttpResponseRedirect(reverse("my-bookcopies"))
 

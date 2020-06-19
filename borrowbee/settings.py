@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     "allauth.socialaccount",
     "allauth.socialaccount.providers.github",
     "background_task",
+    "widget_tweaks",
+    # begin app-specific
     "users",
     "pages",
     "books",

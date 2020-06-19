@@ -187,6 +187,14 @@ typing-extensions = "*"
 
 [[package]]
 category = "main"
+description = "Tweak the form field rendering in templates, not in python-level form definitions."
+name = "django-widget-tweaks"
+optional = false
+python-versions = "*"
+version = "1.4.8"
+
+[[package]]
+category = "main"
 description = "Internationalized Domain Names in Applications (IDNA)"
 name = "idna"
 optional = false
@@ -563,7 +571,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["pathlib2", "contextlib2", "unittest2"]
 
 [metadata]
-content-hash = "df56d2d08f0b669adae5be48486abe086bec4ea40911c8a6d16c3f1bb980c896"
+content-hash = "65f8cb3107d4fa3334cecd55886461897c4245de3a4c51e0f66a1109b2bfae18"
 python-versions = "^3.6"
 
 [metadata.files]
@@ -627,6 +635,10 @@ django-compat = [
 django-stubs = [
     {file = "django-stubs-1.4.0.tar.gz", hash = "sha256:a84860e02d5ada1a96e4c6f6800be4729ea3df354ff1156f0616db647dc2fe9e"},
     {file = "django_stubs-1.4.0-py3-none-any.whl", hash = "sha256:9a1bd302c42b1132e1537ba2315b94de01e673a1926ac2b3e1523ed7b81411c8"},
+]
+django-widget-tweaks = [
+    {file = "django-widget-tweaks-1.4.8.tar.gz", hash = "sha256:9f91ca4217199b7671971d3c1f323a2bec71a0c27dec6260b3c006fa541bc489"},
+    {file = "django_widget_tweaks-1.4.8-py2.py3-none-any.whl", hash = "sha256:f80bff4a8a59b278bb277a405a76a8b9a884e4bae7a6c70e78a39c626cd1c836"},
 ]
 idna = [
     {file = "idna-2.8-py2.py3-none-any.whl", hash = "sha256:ea8b7f6188e6fa117537c3df7da9fc686d485087abf6ac197f9c46432f7e4a3c"},

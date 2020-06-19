@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "parcel watch --public-url /static/ --out-dir ../static $(find entry-points -type f)",
+    "build": "parcel build --public-url /static/ --out-dir ../static $(find entry-points -type f)",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -11,6 +13,7 @@
   "devDependencies": {
     "@vue/component-compiler-utils": "^3.1.1",
     "parcel": "^1.12.4",
+    "sass": "^1.26.8",
     "typescript": "^3.7.5",
     "vue-template-compiler": "^2.6.11"
   },
